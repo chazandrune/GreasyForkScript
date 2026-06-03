@@ -8,6 +8,7 @@
 // @match        https://steamdb.info/app/*
 // @grant        none
 // @icon         https://store.steampowered.com/favicon.ico
+// @license      MIT
 // ==/UserScript==
 
 (function () {
