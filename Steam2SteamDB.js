@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         steam跳转steamDB
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.3
 // @description  Steam商店详情页面添加SteamDB跳转按钮，SteamDB页面添加查找学习版按钮
 // @author       mopanda
 // @match        https://store.steampowered.com/app/*
@@ -13,7 +13,7 @@
 
 (function () {
     'use strict';
-
+    
     if (window.location.href.startsWith('https://store.steampowered.com/app/')) {
         const gameId = window.location.href.match(/app\/(\d+)/)[1];
         const otherSiteInfoDiv = document.querySelector('.apphub_OtherSiteInfo');
@@ -41,6 +41,16 @@
         let gameName = '';
         if (gameNameElement) {
             gameName = gameNameElement.textContent;
+        }
+        // 判断是否包含中文
+        const hasChinese = /[\u4e00-\u9fa5]/.test(gameName);
+    
+        // 如果包含中文，就取 alternateName 作为游戏名
+        if (hasChinese) {
+            const alternateNameEl = document.querySelector('td[itemprop="alternateName"]');
+            if (alternateNameEl) {
+                gameName = alternateNameEl.textContent.trim();
+            }
         }
 
         const existingButtons = document.querySelectorAll('.pagehead-actions a');
