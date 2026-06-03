@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         steam跳转steamDB
 // @namespace    http://tampermonkey.net/
-// @version      1.1
-// @description  在Steam商店页面添加跳转到SteamDB的按钮，在SteamDB页面添加跳转到学习版搜索页的按钮
+// @version      1.2
+// @description  Steam商店详情页面添加SteamDB跳转按钮，SteamDB页面添加查找学习版按钮
 // @author       mopanda
 // @match        https://store.steampowered.com/app/*
 // @match        https://steamdb.info/app/*
